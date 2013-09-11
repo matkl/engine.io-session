@@ -40,3 +40,24 @@ server.on('session', function(socket, session) {
   console.log(session);
 });
 ```
+
+## API additions to engine.io
+
+### Server
+
+#### Events
+
+- `session`
+    - Called when a session for a socket is available.
+    - **Arguments**
+      - `Socket`: the Socket object
+      - `session`: the session data from http request
+
+### Socket
+
+#### Events
+
+- `session`
+    - Called when a session for this socket is available.
+    - **Arguments**
+      - `session`: the session data object
