@@ -41,11 +41,9 @@ server.on('session', function(socket, session) {
 });
 ```
 
-## API additions to engine.io
+## Events
 
 ### Server
-
-#### Events
 
 - `session`
     - Called when a session for a socket is available.
@@ -54,8 +52,6 @@ server.on('session', function(socket, session) {
       - `session`: the session data from http request
 
 ### Socket
-
-#### Events
 
 - `session`
     - Called when a session for this socket is available.
