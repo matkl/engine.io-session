@@ -5,11 +5,11 @@ An engine.io plugin that allows you to read sessions created by the Connect sess
 
 ## Usage
 
-### With Connect
+### Example using Connect
 
 TODO
 
-### With Express
+### Example using Express
 
 ```js
 var express = require('express');
@@ -40,3 +40,20 @@ server.on('session', function(socket, session) {
   console.log(session);
 });
 ```
+
+## Events
+
+### Server
+
+- `session`
+    - Called when a session for a socket is available.
+    - **Arguments**
+      - `Socket`: the Socket object
+      - `session`: the session data from http request
+
+### Socket
+
+- `session`
+    - Called when a session for this socket is available.
+    - **Arguments**
+      - `session`: the session data object
