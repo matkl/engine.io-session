@@ -14,5 +14,11 @@
   "license": "MIT",
   "dependencies": {
     "cookie-signature": "~1.0.1"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "connect": "*",
+    "engine.io": "*",
+    "engine.io-client": "*",
   }
 }
