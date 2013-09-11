@@ -5,11 +5,11 @@ An engine.io plugin that allows you to read sessions created by the Connect sess
 
 ## Usage
 
-### With Connect
+### Example using Connect
 
 TODO
 
-### With Express
+### Example using Express
 
 ```js
 var express = require('express');
