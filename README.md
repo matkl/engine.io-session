@@ -30,7 +30,7 @@ app.use({ store: sessionStore, key: sessionKey, secret: sessionSecret });
 var httpServer = http.createServer(app).listen(3000);
 var server = eio.attach(httpServer);
 
-server.on('connection', engineSession({
+server.on('connection', eioSession({
   cookieParser: cookieParser,
   store: sessionStore,
   key: sessionKey,
