@@ -1,7 +1,13 @@
 engine.io-session
 =================
 
-An engine.io plugin that allows you to read sessions created by the Connect session middleware.
+An [engine.io](https://github.com/LearnBoost/engine.io) plugin that allows you to read sessions created by the [Connect](http://senchalabs.github.com/connect) session middleware.
+
+## Installation
+
+```
+npm install engine.io-session
+```
 
 ## Usage
 
