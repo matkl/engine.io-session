@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "author": "Matthias Klein <matthias@klein.pw>",
   "description": "Read Connect sessions in engine.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matkl/engine.io-session.git"
+  },
   "main": "main.js",
   "keywords": [
     "engine.io",
