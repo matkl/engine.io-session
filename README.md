@@ -7,7 +7,33 @@ An engine.io plugin that allows you to read sessions created by the Connect sess
 
 ### Example using Connect
 
-TODO
+```js
+var connect = require('connect');
+var eio = require('engine.io');
+var cookieParser = connect.cookieParser();
+var app = connect();
+var sessionStore = new connect.session.MemoryStore();
+var sessionKey = 'sid';
+var sessionSecret = 'your secret here';
+
+app.use(cookieParser);
+app.use({ store: sessionStore, key: sessionKey, secret: sessionSecret });
+
+var httpServer = http.createServer(app).listen(3000);
+var server = eio.attach(httpServer);
+
+server.on('connection', engineSession({
+  cookieParser: cookieParser,
+  store: sessionStore,
+  key: sessionKey,
+  secret: sessionSecret
+});
+
+server.on('session', function(socket, session) {
+  // Output session data.
+  console.log(session);
+});
+```
 
 ### Example using Express
 
@@ -18,7 +44,7 @@ var engineSession = require('engine.io-session');
 
 var app = express();
 var cookieParser = express.cookieParser();
-var sessionStore = new MemoryStore();
+var sessionStore = new express.session.MemoryStore();
 var sessionKey = 'sid';
 var sessionSecret = 'your secret here';
 
