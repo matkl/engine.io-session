@@ -11,6 +11,7 @@ An engine.io plugin that allows you to read sessions created by the Connect sess
 var connect = require('connect');
 var eio = require('engine.io');
 var eioSession = require('engine.io-session');
+
 var cookieParser = connect.cookieParser();
 var app = connect();
 var sessionStore = new connect.session.MemoryStore();
