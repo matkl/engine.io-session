@@ -3,6 +3,8 @@ engine.io-session
 
 An [engine.io](https://github.com/LearnBoost/engine.io) plugin that allows you to read sessions created by the [Connect](http://senchalabs.github.com/connect) session middleware.
 
+It obtains the session id from the HTTP request headers and fetches the session data from a specified session store.
+
 ## Installation
 
 ```
@@ -76,6 +78,8 @@ server.on('session', function(socket, session) {
 ```
 
 ## Events
+
+The `session` events will be fired on the `Server` and `Socket` objects.
 
 ### Server
 
