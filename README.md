@@ -18,20 +18,26 @@ npm install engine.io-session
 ### Example using Connect
 
 ```js
+var http = require('http');
 var connect = require('connect');
 var eio = require('engine.io');
 var eioSession = require('engine.io-session');
 
-var cookieParser = connect.cookieParser();
 var app = connect();
+var cookieParser = connect.cookieParser();
 var sessionStore = new connect.session.MemoryStore();
 var sessionKey = 'sid';
 var sessionSecret = 'your secret here';
 
 app.use(cookieParser);
-app.use({ store: sessionStore, key: sessionKey, secret: sessionSecret });
+app.use(connect.session({ store: sessionStore, key: sessionKey, secret: sessionSecret }));
+app.use(function(req, res) {
+  // Save variable to session.
+  req.session.foo = 'bar';
+  res.end();
+});
 
-var httpServer = http.createServer(app).listen(3000);
+var httpServer = http.createServer(app).listen(5000);
 var server = eio.attach(httpServer);
 
 server.on('connection', eioSession({
@@ -39,45 +45,17 @@ server.on('connection', eioSession({
   store: sessionStore,
   key: sessionKey,
   secret: sessionSecret
-});
+}));
 
 server.on('session', function(socket, session) {
-  // Output session data.
-  console.log(session);
+  // Receive variable from session.
+  console.log(session.foo); // bar
 });
 ```
 
 ### Example using Express
 
-```js
-var express = require('express');
-var eio = require('engine.io');
-var eioSession = require('engine.io-session');
-
-var app = express();
-var cookieParser = express.cookieParser();
-var sessionStore = new express.session.MemoryStore();
-var sessionKey = 'sid';
-var sessionSecret = 'your secret here';
-
-app.use(cookieParser);
-app.use(express.session({ store: sessionStore, key: sessionKey, secret: sessionSecret }));
-
-var httpServer = http.createServer(app).listen(3000);
-var server = engine.attach(httpServer);
-
-server.on('connection', eioSession({
-  cookieParser: cookieParser,
-  store: sessionStore,
-  key: sessionKey,
-  secret: sessionSecret
-});
-
-server.on('session', function(socket, session) {
-  // Output session data.
-  console.log(session);
-});
-```
+Same as above. Replace `connect` with `express`.
 
 ## Events
 
