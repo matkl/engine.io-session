@@ -23,6 +23,7 @@
     "mocha": "*",
     "connect": "*",
     "engine.io": "*",
-    "engine.io-client": "*"
+    "engine.io-client": "*",
+    "superagent": "*"
   }
 }
