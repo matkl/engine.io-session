@@ -2,6 +2,7 @@ engine.io-session
 =================
 
 [![NPM version](https://badge.fury.io/js/engine.io-session.png)](http://badge.fury.io/js/engine.io-session)
+[![Build Status](https://travis-ci.org/matkl/engine.io-session.png?branch=master)](https://travis-ci.org/matkl/engine.io-session)
 
 An [engine.io](https://github.com/LearnBoost/engine.io) plugin that allows you to read sessions created by the [Connect](http://senchalabs.github.com/connect) session middleware.
 
