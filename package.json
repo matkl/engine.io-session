@@ -1,6 +1,6 @@
 {
   "name": "engine.io-session",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Matthias Klein <matthias@klein.pw>",
   "description": "Read Connect sessions in engine.io",
   "repository": {
