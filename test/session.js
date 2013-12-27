@@ -65,4 +65,12 @@ describe('engine.io-session', function() {
       done();
     });
   });
+  it('should generate a session if none exists', function(done) {
+    var server = listen(function(port) {
+      var socket = eioc('ws://localhost:' + port);
+    });
+    server.on('session', function(socket, session) {
+      done();
+    });
+  });
 });
