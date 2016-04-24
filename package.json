@@ -8,6 +8,10 @@
     "url": "https://github.com/matkl/engine.io-session.git"
   },
   "main": "main.js",
+  "scripts": {
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --",
+    "coveralls": "cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
+  },
   "keywords": [
     "engine.io",
     "plugin",
@@ -20,10 +24,13 @@
     "cookie-signature": "~1.0.1"
   },
   "devDependencies": {
-    "mocha": "*",
-    "connect": "*",
-    "engine.io": "*",
-    "engine.io-client": "*",
-    "superagent": "*"
+    "connect": "^2.30.2",
+    "engine.io": "^1.6.8",
+    "engine.io-client": "^1.6.8",
+    "express-session": "^1.13.0",
+    "istanbul": "^0.4.3",
+    "mocha": "^2.4.5",
+    "superagent": "^1.8.3",
+    "supertest": "^1.2.0"
   }
 }
