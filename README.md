@@ -1,8 +1,10 @@
 engine.io-session
 =================
 
-[![NPM version](https://badge.fury.io/js/engine.io-session.png)](http://badge.fury.io/js/engine.io-session)
 [![Build Status](https://travis-ci.org/matkl/engine.io-session.png?branch=master)](https://travis-ci.org/matkl/engine.io-session)
+[![npm version](http://img.shields.io/npm/v/engine.io-session.svg?style=flat)](https://npmjs.org/package/engine.io-session "View this project on npm")
+
+**Deprecated**: This module will probably not work with Connect >= 3.0 and should no longer be needed. See [this post on Stack Overflow](http://stackoverflow.com/questions/23494016/socket-io-and-express-4-sessions) for information about accessing sessions in engine.io.
 
 An [engine.io](https://github.com/LearnBoost/engine.io) plugin that allows you to read sessions created by the [Connect](http://senchalabs.github.com/connect) session middleware.
 
@@ -16,7 +18,7 @@ npm install engine.io-session
 
 ## Usage
 
-### Example using Connect
+### Example using Connect 2.x
 
 ```js
 var http = require('http');
@@ -54,7 +56,7 @@ server.on('session', function(socket, session) {
 });
 ```
 
-### Example using Express
+### Example using Express 3.x
 
 Same as above. Replace `connect` with `express`.
 
