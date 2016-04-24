@@ -24,6 +24,7 @@
     "cookie-signature": "~1.0.1"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "connect": "^2.30.2",
     "engine.io": "^1.6.8",
     "engine.io-client": "^1.6.8",

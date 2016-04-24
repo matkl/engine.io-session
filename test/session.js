@@ -1,9 +1,10 @@
+var expect = require('chai').expect;
 var http = require('http');
 var connect = require('connect');
 var eio = require('engine.io');
 var eioc = require('engine.io-client');
 var eioSession = require('..');
-var superagent = require('superagent');
+var request = require('superagent');
 
 function listen(callback) {
   var cookieParser = connect.cookieParser();
@@ -36,21 +37,26 @@ function listen(callback) {
 }
 
 describe('engine.io-session', function() {
-  it('should get a session', function(done) {
+  it('should return a session', function(done) {
     var server = listen(function(port) {
-      var agent = superagent.agent();
-      
-      agent.get('http://localhost:' + port).end(function(err, res) {
-        var socket = eioc('ws://localhost:' + port, { agent: res.agent });
+      var req = request.get('http://localhost:' + port);
+      req.end(function(err, res) {
+        var cookie = res.headers['set-cookie'];
+        var socket = eioc('ws://localhost:' + port, {
+          extraHeaders: {
+            'Cookie': cookie
+          }
+        });
       });
     });
 
     server.on('session', function(socket, session) {
+      expect(session.foo).to.equal('bar');
       done();
     });
   });
 
-  it('should generate a session if none exists', function(done) {
+  it('should generate an empty session if none exists', function(done) {
     var server = listen(function(port) {
       var socket = eioc('ws://localhost:' + port);
     });
