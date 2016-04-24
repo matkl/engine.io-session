@@ -2,6 +2,7 @@ engine.io-session
 =================
 
 [![Build Status](https://travis-ci.org/matkl/engine.io-session.png?branch=master)](https://travis-ci.org/matkl/engine.io-session)
+[![Coverage Status](https://coveralls.io/repos/github/matkl/engine.io-session/badge.svg?branch=master)](https://coveralls.io/github/matkl/engine.io-session?branch=master)
 [![npm version](http://img.shields.io/npm/v/engine.io-session.svg?style=flat)](https://npmjs.org/package/engine.io-session "View this project on npm")
 
 **Deprecated**: This module will probably not work with Connect >= 3.0 and should no longer be needed. See [this post on Stack Overflow](http://stackoverflow.com/questions/23494016/socket-io-and-express-4-sessions) for information about accessing sessions in engine.io.
